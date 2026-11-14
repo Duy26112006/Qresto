@@ -30,7 +30,7 @@ Tài liệu này đặc tả chi tiết UC06 và UC07, kèm các trường hợp
 | Thành phần phối hợp | DiningSessionService (phần Khánh Duy) để lấy hoặc tạo phiên; SignalR để báo cho phục vụ |
 | Mô tả | Khách gửi giỏ hàng hiện tại. Hệ thống kiểm tra lại toàn bộ ở server, lấy hoặc tạo phiên của bàn, rồi lưu thành một đơn mới gồm các dòng món ở trạng thái Chờ xác nhận. |
 | Kích hoạt | Khách bấm «Gửi gọi món» trên trang giỏ hàng |
-| Tiền điều kiện | Khách đang ở trang thực đơn của một bàn hợp lệ. Giỏ có ít nhất 1 dòng. Bàn chưa có phiên (sẽ được tạo) hoặc phiên đang ở trạng thái Đang phục vụ. |
+| Tiền điều kiện | Khách đang ở trang thực đơn của một bàn hợp lệ. Giỏ có ít nhất 1 dòng. Bàn chưa có phiên (sẽ được tạo) hoặc phiên đang ở trạng thái Đang phục vụ. Trình duyệt chưa có quyền truy cập vẫn gửi được nếu trang được tải lúc bàn chưa có phiên, ví dụ hai điện thoại cùng quét QR lúc bàn trống. |
 | Hậu điều kiện (thành công) | Có đúng 1 đơn mới gắn đúng phiên và đúng trình duyệt gửi. Mỗi dòng món ở trạng thái Chờ xác nhận, đơn giá lấy từ server tại thời điểm gửi. Phiên đã tồn tại (tạo nếu bàn chưa có) và trình duyệt có quyền truy cập phiên. Giỏ được làm trống. Phục vụ nhận thông báo đơn mới. |
 | Hậu điều kiện (thất bại) | Không có đơn nào được lưu. Không tạo phiên rỗng. Giỏ của khách giữ nguyên để chỉnh sửa hoặc gửi lại. |
 
@@ -39,16 +39,16 @@ Tài liệu này đặc tả chi tiết UC06 và UC07, kèm các trường hợp
 | Bước | Thực hiện bởi | Hành động |
 | --- | --- | --- |
 | 1 | Khách | Bấm «Gửi gọi món». |
-| 2 | Trình duyệt | Kiểm tra nhanh giỏ không trống, sinh mã chống gửi trùng (ClientRequestId) nếu chưa có, gửi yêu cầu kèm danh sách {món, số lượng, ghi chú, giá đang hiển thị} và cookie truy cập. |
+| 2 | Trình duyệt | Kiểm tra nhanh giỏ không trống, sinh mã chống gửi trùng (ClientRequestId) nếu chưa có, gửi yêu cầu kèm PageSessionId (phiên mà trang đang hiển thị, null nếu lúc tải bàn chưa có phiên), danh sách {món, số lượng, ghi chú, giá đang hiển thị} và cookie truy cập. |
 | 3 | Server | Kiểm tra dữ liệu: giỏ không trống, số lượng từ 1 đến 50, ghi chú tối đa 300 ký tự. |
-| 4 | Server | Mở giao dịch. Tra phiên đang hoạt động của bàn và quyền truy cập của trình duyệt. Nếu có phiên thì phiên phải ở trạng thái Đang phục vụ. |
+| 4 | Server | Mở giao dịch. Tra phiên đang hoạt động của bàn rồi đối chiếu PageSessionId và cookie theo bảng ở mục 2.2: bàn Chờ thanh toán thì từ chối (A2); trang thuộc phiên đã kết thúc hoặc trình duyệt mất quyền thì từ chối (A3); còn lại thì tiếp tục. Trình duyệt chưa có quyền, PageSessionId là null và bàn đang Đang phục vụ thì được vào phiên hiện tại, không cần quét lại QR. |
 | 5 | Server | Nếu phiên đã có, kiểm tra ClientRequestId chưa được ghi nhận trong phiên. |
 | 6 | Server | Đọc các món từ cơ sở dữ liệu. Mỗi món phải ở trạng thái Đang bán và giá hiện tại phải bằng giá khách đang thấy. |
-| 7 | Server | Lấy hoặc tạo phiên của bàn, cấp quyền truy cập cho trình duyệt nếu chưa có (gọi DiningSessionService, cùng giao dịch). |
+| 7 | Server | Lấy hoặc tạo phiên của bàn, cấp quyền truy cập cho trình duyệt nếu chưa có (gọi DiningSessionService, cùng giao dịch). Nếu hai điện thoại cùng tạo phiên một lúc, bên thua (vi phạm ràng buộc một phiên hoạt động mỗi bàn) hủy giao dịch, thử lại một lần từ bước 4; lúc đó phiên đã tồn tại nên được vào phiên đó. |
 | 8 | Server | Tạo đơn và các dòng món ở trạng thái Chờ xác nhận, lưu đơn giá hiện tại của server vào từng dòng. |
 | 9 | Server | Lưu thay đổi và chốt giao dịch. |
 | 10 | Server | Sau khi chốt, phát thông báo «đơn mới» tới nhóm Phục vụ qua SignalR. |
-| 11 | Server | Trả kết quả thành công kèm mã đơn và các dòng món, kèm cookie truy cập nếu trình duyệt vừa được cấp quyền ở bước 7. |
+| 11 | Server | Trả kết quả thành công kèm mã đơn, mã phiên (để trang cập nhật PageSessionId) và các dòng món, kèm cookie truy cập nếu trình duyệt vừa được cấp quyền ở bước 7. |
 | 12 | Trình duyệt | Xóa giỏ, hiển thị đơn trong «Món đã gọi», báo gửi thành công. |
 
 ### 2.2. Luồng thay thế và ngoại lệ
@@ -56,12 +56,24 @@ Tài liệu này đặc tả chi tiết UC06 và UC07, kèm các trường hợp
 | Mã | Tại bước | Điều kiện | Xử lý của hệ thống | Khách thấy |
 | --- | --- | --- | --- | --- |
 | A1 | 3 | Giỏ trống, số lượng ngoài 1–50 hoặc ghi chú quá 300 ký tự | Không lưu gì. Trả InvalidInput (HTTP 400). | Thông báo lỗi ngay trên dòng sai. Giỏ giữ nguyên. |
-| A2 | 4 | Phiên đang Chờ thanh toán hoặc đã kết thúc | Hủy giao dịch. Trả SessionClosed (HTTP 409). | Báo bàn đang yêu cầu thanh toán nên tạm dừng gọi món, gọi nhân viên nếu muốn gọi thêm. |
-| A3 | 4 | Cookie không thuộc phiên hiện tại hoặc đã hết hiệu lực | Hủy giao dịch. Trả NoAccess (HTTP 403). | Hướng dẫn quét lại QR trên bàn. |
+| A2 | 4 | Bàn đang Chờ thanh toán, kể cả khi trình duyệt chưa có quyền | Hủy giao dịch. Trả SessionClosed (HTTP 409). | Báo bàn đang yêu cầu thanh toán nên tạm dừng gọi món, gọi nhân viên nếu muốn gọi thêm. |
+| A3 | 4 | Trang thuộc phiên đã kết thúc (PageSessionId khác phiên hiện tại), hoặc đúng phiên nhưng trình duyệt mất quyền (xóa cookie, đổi trình duyệt) | Hủy giao dịch. Trả StaleSession (HTTP 409) hoặc NoAccess (HTTP 403). | Phiên cũ: hướng dẫn quét lại QR trên bàn. Mất quyền: nhờ nhân viên hỗ trợ. |
 | A4 | 5 hoặc 9 | Gửi trùng: ClientRequestId đã có trong phiên | Không tạo thêm đơn. Trả Duplicate kèm mã đơn đã tạo. | Thấy đơn đã gửi như bình thường, không bị gọi hai lần. |
 | A5 | 6 | Có món Tạm hết hoặc Ngừng bán | Hủy giao dịch. Trả ItemUnavailable kèm danh sách món. | Món hết được đánh dấu, khách bỏ món đó rồi gửi lại. |
 | A6 | 6 | Giá hiện tại khác giá khách đang thấy | Hủy giao dịch. Trả PriceChanged kèm giá mới. | Giỏ cập nhật giá mới, khách xem lại tổng tiền và bấm gửi lại để xác nhận. |
 | A7 | Bất kỳ | Mất kết nối hoặc lỗi hệ thống | Hủy giao dịch, không báo thành công khi chưa lưu. | Thông báo rõ lỗi, giữ giỏ. Khi có mạng, khách gửi lại. |
+
+**Bảng đối chiếu phiên ở bước 4.** PageSessionId là phiên mà trang đang hiển thị lúc tải (null nếu lúc đó bàn chưa có phiên). Quy tắc này cho điện thoại thứ hai vào phiên đang phục vụ mà không cần quét lại QR, đồng thời chặn trang cũ chuyển sang phiên mới.
+
+| PageSessionId | Phiên hiện tại của bàn | Kết quả |
+| --- | --- | --- |
+| null | Chưa có | Tiếp tục; tạo phiên và cấp quyền ở bước 7 |
+| null | Đang phục vụ | Tiếp tục; vào phiên hiện tại, cấp quyền ở bước 7 (không cần quét lại QR) |
+| null | Chờ thanh toán | Từ chối SessionClosed (A2) |
+| Bằng phiên hiện tại | Đang phục vụ, trình duyệt có quyền | Tiếp tục |
+| Bằng phiên hiện tại | Đang phục vụ, trình duyệt mất quyền | Từ chối NoAccess (A3) |
+| Bằng phiên hiện tại | Chờ thanh toán | Từ chối SessionClosed (A2) |
+| Khác phiên hiện tại, hoặc bàn không còn phiên hoạt động | Bất kỳ | Từ chối StaleSession (A3), yêu cầu quét lại QR |
 
 ### 2.3. Ba trường hợp trọng tâm
 
@@ -85,7 +97,7 @@ Tài liệu này đặc tả chi tiết UC06 và UC07, kèm các trường hợp
 - Phát hiện: mã ClientRequestId do trình duyệt sinh khi bắt đầu gửi. Có ràng buộc duy nhất theo cặp (phiên, ClientRequestId) trong cơ sở dữ liệu nên hai yêu cầu đồng thời cũng chỉ một yêu cầu ghi được.
 - Xử lý: yêu cầu thứ hai trả về đơn đã có (Duplicate), không tạo đơn mới.
 - Quy ước mã: gửi lại sau lỗi mạng thì giữ nguyên mã. Gửi lại sau khi khách đã sửa giỏ vì món hết hoặc đổi giá thì sinh mã mới.
-- Với đơn đầu tiên của bàn chưa có phiên: hai yêu cầu cùng lúc cùng cố tạo phiên, chỉ một phiên được tạo (ràng buộc một phiên hoạt động mỗi bàn). Yêu cầu bên thua đọc lại phiên và đơn đã tạo.
+- Với đơn đầu tiên của bàn chưa có phiên: hai yêu cầu cùng lúc cùng cố tạo phiên, chỉ một phiên được tạo (ràng buộc một phiên hoạt động mỗi bàn). Yêu cầu bên thua hủy giao dịch, thử lại một lần từ bước 4 và vào phiên đã có. Nếu cùng ClientRequestId thì nhận Duplicate, nếu là điện thoại khác thì tạo đơn riêng trong cùng phiên.
 
 ### 2.4. Quy tắc nghiệp vụ liên quan
 
@@ -97,6 +109,7 @@ Tài liệu này đặc tả chi tiết UC06 và UC07, kèm các trường hợp
 - BR6: dòng mới ở trạng thái Chờ xác nhận, chưa cộng vào tạm tính.
 - BR7: không tạo phiên rỗng. Tạo phiên và lưu đơn thành công hoặc thất bại cùng nhau.
 - BR8: khi phiên đang Chờ thanh toán không nhận đơn mới.
+- BR9: trình duyệt chưa có quyền chỉ được vào phiên hiện tại khi PageSessionId là null và bàn đang Đang phục vụ. Trang thuộc phiên cũ luôn bị từ chối.
 
 ## 3. Đặc tả UC07 – Gọi bổ sung
 
@@ -119,13 +132,16 @@ Tài liệu này đặc tả chi tiết UC06 và UC07, kèm các trường hợp
 | TC-06-04 | Món vừa hết | Bếp đặt Tạm hết, khách gửi món đó | ItemUnavailable, không lưu đơn nào |
 | TC-06-05 | Đổi giá | Quản lý sửa giá, khách gửi với giá cũ | PriceChanged, khách xác nhận lại mới tạo đơn với giá mới |
 | TC-06-06 | Gửi nhiều lần | Bấm gửi nhiều lần hoặc gửi cùng ClientRequestId hai lần | Chỉ một đơn được tạo |
-| TC-06-07 | Hai điện thoại cùng bàn | Hai điện thoại gửi gần như đồng thời | Hai đơn riêng trong cùng một phiên |
+| TC-06-07 | Hai điện thoại cùng quét QR lúc bàn chưa có phiên | Máy A gửi trước, máy B gửi đơn hợp lệ sau mà không quét lại QR | Máy A tạo phiên; máy B vào cùng phiên đó và được cấp quyền; hai đơn riêng trong một phiên |
 | TC-06-08 | Phiên Chờ thanh toán | Yêu cầu thanh toán rồi gửi món | SessionClosed, không tạo đơn |
 | TC-06-09 | Gọi bổ sung | Gửi lần hai sau khi đơn đầu đã xác nhận | Đơn mới trong cùng phiên, đơn cũ giữ nguyên |
 | TC-06-10 | Lỗi giữa chừng | Tắt mạng hoặc gây lỗi khi lưu | Không đơn nào được lưu, không có phiên rỗng, giỏ giữ nguyên |
+| TC-06-11 | Hai máy tạo phiên cùng lúc | Hai điện thoại gửi gần như đồng thời lúc bàn chưa có phiên | Chỉ một phiên được tạo; máy thua thử lại và vào phiên đó; không có phiên thừa |
+| TC-06-12 | Trang cũ sau khi phiên kết thúc | Phiên đã thanh toán, trang cũ bấm gửi | StaleSession, không tạo đơn, hướng dẫn quét lại QR |
+| TC-06-13 | Bàn Chờ thanh toán, máy chưa có quyền | Máy B (PageSessionId null) gửi khi bàn đã Chờ thanh toán | SessionClosed, không tạo đơn, không cấp quyền |
 
 ## 5. Điểm cần thống nhất với nhóm
 
-- Khánh Duy: chữ ký hàm lấy hoặc tạo phiên, và dùng chung một giao dịch cơ sở dữ liệu với OrderService.
+- Khánh Duy: chữ ký hàm lấy hoặc tạo phiên, và dùng chung một giao dịch cơ sở dữ liệu với OrderService. Hàm nhận thêm PageSessionId, cấp quyền cho trình duyệt thứ hai vào phiên đang phục vụ, và xử lý cuộc đua tạo phiên (ràng buộc một phiên hoạt động mỗi bàn).
 - Khánh Duy: tài liệu nghiệp vụ mục 6.2 còn ghi «chưa có phiên thì khách xem menu nhưng chưa gửi món», mâu thuẫn với luồng mới (phiên tự tạo khi gửi đơn đầu tiên).
 - Hữu Duy: thống nhất tên trạng thái dòng món và các cột sự cố trong bảng dòng món trước khi tạo migration.
