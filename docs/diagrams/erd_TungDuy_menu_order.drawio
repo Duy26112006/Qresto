@@ -1,0 +1,235 @@
+<mxfile host="Electron">
+  <diagram id="ERD-TungDuy" name="ERD-TungDuy">
+    <mxGraphModel dx="2515" dy="2771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1810" pageHeight="898" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=left;fontSize=16;fontStyle=1;" value="Qresto – ERD: Danh mục, Món, Đơn, Dòng món (SQLite, EF Core)  |  Phụ trách: Nguyễn Tùng Duy" vertex="1">
+          <mxGeometry height="40" width="1600" x="50" y="-850" as="geometry" />
+        </mxCell>
+        <mxCell id="Categories" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" value="&lt;b&gt;Categories&lt;/b&gt;" vertex="1">
+          <mxGeometry height="108" width="230" x="50" y="-715" as="geometry" />
+        </mxCell>
+        <mxCell id="Categories_0" parent="Categories" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;  Id : INTEGER" vertex="1">
+          <mxGeometry height="20" width="230" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="Categories_1" parent="Categories" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Name : TEXT  &lt;i&gt;NN, UNIQUE&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="Categories_2" parent="Categories" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    DisplayOrder : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="Categories_3" parent="Categories" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    IsActive : INTEGER  &lt;i&gt;NN (0/1)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" value="&lt;b&gt;MenuItems&lt;/b&gt;" vertex="1">
+          <mxGeometry height="188" width="250" x="390" y="-715" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems_0" parent="MenuItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;  Id : INTEGER" vertex="1">
+          <mxGeometry height="20" width="250" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems_1" parent="MenuItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  CategoryId : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="250" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems_2" parent="MenuItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Name : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="250" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems_3" parent="MenuItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Description : TEXT" vertex="1">
+          <mxGeometry height="20" width="250" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems_4" parent="MenuItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Price : INTEGER  &lt;i&gt;NN, &amp;gt; 0&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="250" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems_5" parent="MenuItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    ImageUrl : TEXT" vertex="1">
+          <mxGeometry height="20" width="250" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems_6" parent="MenuItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Status : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="250" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="MenuItems_7" parent="MenuItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    PrepTimeMinutes : INTEGER  &lt;i&gt;NN, &amp;gt; 0&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="250" y="168" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" value="&lt;b&gt;OrderItems&lt;/b&gt;" vertex="1">
+          <mxGeometry height="428" width="300" x="750" y="-715" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_0" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;  Id : INTEGER" vertex="1">
+          <mxGeometry height="20" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_1" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  OrderId : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_2" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  MenuItemId : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_3" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Quantity : INTEGER  &lt;i&gt;NN, 1..50&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_4" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    UnitPrice : INTEGER  &lt;i&gt;NN, ≥ 0&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_5" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Note : TEXT  &lt;i&gt;≤ 300 ký tự&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_6" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Status : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="148" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_7" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    ConfirmedAt : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="168" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_8" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    PreparingAt : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_9" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    ReadyAt : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_10" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    ServedAt : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="228" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_11" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    RejectReason : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_12" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    CancelReason : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_13" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    HasIncident : INTEGER  &lt;i&gt;NN (0/1)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="288" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_14" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    IncidentNote : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="308" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_15" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    IncidentReportedAt : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="328" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_16" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  IncidentReportedById : TEXT  &lt;i&gt;→ AspNetUsers&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_17" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    IncidentResolvedAt : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="368" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_18" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  IncidentResolvedById : TEXT  &lt;i&gt;→ AspNetUsers&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderItems_19" parent="OrderItems" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    IncidentResult : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="408" as="geometry" />
+        </mxCell>
+        <mxCell id="Orders" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" value="&lt;b&gt;Orders&lt;/b&gt;" vertex="1">
+          <mxGeometry height="128" width="260" x="1160" y="-715" as="geometry" />
+        </mxCell>
+        <mxCell id="Orders_0" parent="Orders" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;  Id : INTEGER" vertex="1">
+          <mxGeometry height="20" width="260" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="Orders_1" parent="Orders" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  DiningSessionId : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="260" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="Orders_2" parent="Orders" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  SubmittedByAccessId : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="260" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="Orders_3" parent="Orders" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    ClientRequestId : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="260" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="Orders_4" parent="Orders" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    SubmittedAt : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="260" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="SessionAccesses" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" value="&lt;b&gt;SessionAccesses&lt;/b&gt;" vertex="1">
+          <mxGeometry height="128" width="230" x="1530" y="-715" as="geometry" />
+        </mxCell>
+        <mxCell id="SessionAccesses_0" parent="SessionAccesses" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;  Id : INTEGER" vertex="1">
+          <mxGeometry height="20" width="230" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="SessionAccesses_1" parent="SessionAccesses" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  DiningSessionId : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="SessionAccesses_2" parent="SessionAccesses" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    TokenHash : TEXT  &lt;i&gt;NN, UNIQUE&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="SessionAccesses_3" parent="SessionAccesses" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    CreatedAt : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="SessionAccesses_4" parent="SessionAccesses" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    RevokedAt : TEXT" vertex="1">
+          <mxGeometry height="20" width="230" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningSessions" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" value="&lt;b&gt;DiningSessions&lt;/b&gt;" vertex="1">
+          <mxGeometry height="148" width="230" x="1160" y="-415" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningSessions_0" parent="DiningSessions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;  Id : INTEGER" vertex="1">
+          <mxGeometry height="20" width="230" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningSessions_1" parent="DiningSessions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;FK&lt;/b&gt;  DiningTableId : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningSessions_2" parent="DiningSessions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Status : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningSessions_3" parent="DiningSessions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    StartedAt : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningSessions_4" parent="DiningSessions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    ClosedAt : TEXT" vertex="1">
+          <mxGeometry height="20" width="230" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningSessions_5" parent="DiningSessions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    BillingVersion : INTEGER  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningTables" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;" value="&lt;b&gt;DiningTables&lt;/b&gt;" vertex="1">
+          <mxGeometry height="128" width="230" x="1530" y="-415" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningTables_0" parent="DiningTables" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;  Id : INTEGER" vertex="1">
+          <mxGeometry height="20" width="230" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningTables_1" parent="DiningTables" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Code : TEXT  &lt;i&gt;NN, UNIQUE&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningTables_2" parent="DiningTables" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    Name : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningTables_3" parent="DiningTables" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    QrToken : TEXT  &lt;i&gt;NN, UNIQUE&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="DiningTables_4" parent="DiningTables" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    IsActive : INTEGER  &lt;i&gt;NN (0/1)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="230" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="AspNetUsers" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" value="&lt;b&gt;AspNetUsers (ASP.NET Core Identity)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="88" width="300" x="1160" y="-155" as="geometry" />
+        </mxCell>
+        <mxCell id="AspNetUsers_0" parent="AspNetUsers" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="&lt;b&gt;PK&lt;/b&gt;  Id : TEXT" vertex="1">
+          <mxGeometry height="20" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="AspNetUsers_1" parent="AspNetUsers" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    UserName : TEXT  &lt;i&gt;NN&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="AspNetUsers_2" parent="AspNetUsers" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;overflow=hidden;rotatable=0;whiteSpace=nowrap;html=1;fontSize=11;" value="    … :   &lt;i&gt;các cột khác của Identity&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="300" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="er1" edge="1" parent="1" source="Categories" style="edgeStyle=none;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endSize=12;startSize=12;exitX=1;exitY=0.5;entryX=0;entryY=0.3;" target="MenuItems" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er2" edge="1" parent="1" source="MenuItems" style="edgeStyle=none;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endSize=12;startSize=12;exitX=1;exitY=0.3;entryX=0;entryY=0.2;" target="OrderItems" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er3" edge="1" parent="1" source="Orders" style="edgeStyle=none;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;endSize=12;startSize=12;exitX=0;exitY=0.2;entryX=1;entryY=0.2;" target="OrderItems" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er4" edge="1" parent="1" source="DiningSessions" style="edgeStyle=none;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endSize=12;startSize=12;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="Orders" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er5" edge="1" parent="1" source="SessionAccesses" style="edgeStyle=none;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endSize=12;startSize=12;exitX=0;exitY=0.3;entryX=1;entryY=0.3;" target="Orders" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er6" edge="1" parent="1" source="DiningSessions" style="edgeStyle=none;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endSize=12;startSize=12;exitX=1;exitY=0.2;entryX=0.3;entryY=1;" target="SessionAccesses" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er7" edge="1" parent="1" source="DiningTables" style="edgeStyle=none;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;endSize=12;startSize=12;exitX=0;exitY=0.4;entryX=1;entryY=0.4;" target="DiningSessions" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er8" edge="1" parent="1" source="AspNetUsers" style="edgeStyle=none;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;endSize=12;startSize=12;exitX=0;exitY=0.3;entryX=1;entryY=0.8364485981308412;" target="OrderItems" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er9" edge="1" parent="1" source="AspNetUsers" style="edgeStyle=none;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;endSize=12;startSize=12;exitX=0;exitY=0.7;entryX=1;entryY=0.9299065420560748;" target="OrderItems" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;strokeColor=#999999;spacing=8;" value="&lt;b&gt;Ràng buộc và ghi chú thiết kế&lt;/b&gt;&lt;br&gt;1. Orders: UNIQUE (DiningSessionId, ClientRequestId) để chống gửi trùng, kể cả khi hai yêu cầu đến cùng lúc.&lt;br&gt;2. OrderItems: CHECK Quantity BETWEEN 1 AND 50; CHECK UnitPrice ≥ 0; CHECK length(Note) ≤ 300.&lt;br&gt;3. MenuItems: CHECK Price &amp;gt; 0 và PrepTimeMinutes &amp;gt; 0; Status ∈ {DangBan, TamHet, NgungBan}. Món không bị xóa, chỉ chuyển NgungBan. Categories không bị xóa, chuyển&lt;br&gt;IsActive = 0.&lt;br&gt;4. OrderItems.Status ∈ {ChoXacNhan, ChoCheBien, DangCheBien, SanSangPhucVu, DaPhucVu, BiTuChoi, DaHuy}.&lt;br&gt;5. Khóa ngoại dùng ON DELETE RESTRICT: không xóa Category, MenuItem, Order, OrderItem đã có lịch sử.&lt;br&gt;6. UnitPrice sao chép MenuItems.Price lúc gửi đơn thành công; sửa giá sau đó không đổi dòng đã gửi.&lt;br&gt;7. Enum lưu dạng chuỗi (HasConversion&amp;lt;string&amp;gt;). Kiểu bool lưu INTEGER 0/1; DateTime lưu TEXT (ISO 8601); Guid lưu TEXT trong SQLite.&lt;br&gt;8. Tạm tính cộng Quantity × UnitPrice của dòng đã xác nhận và chưa hủy. Không lưu cột tổng; trạng thái tổng quan của đơn tính từ các dòng.&lt;br&gt;9. Orders.SubmittedByAccessId phải thuộc cùng phiên với Orders.DiningSessionId (kiểm tra trong OrderService).&lt;br&gt;10. Chỉ mục gợi ý: OrderItems(OrderId), OrderItems(Status) cho màn hình bếp và phục vụ; MenuItems(CategoryId, Status).&lt;br&gt;11. Giỏ hàng không có bảng (lưu ở trình duyệt).&lt;br&gt;12. Màu cam: bảng của Khánh Duy, chỉ hiện cột liên quan. DiningSessions cần UNIQUE có điều kiện trên DiningTableId khi Status ∈ {DangPhucVu, ChoThanhToan} để mỗi bàn&lt;br&gt;tối đa một phiên hoạt động.&lt;br&gt;13. Các cột Incident* do Hữu Duy sử dụng, cần thống nhất trước khi tạo migration. AspNetUsers là bảng có sẵn của Identity." vertex="1">
+          <mxGeometry height="280" width="1000" x="50" y="-237" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
