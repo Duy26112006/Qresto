@@ -25,7 +25,7 @@ Khi không khớp: không ghi nhận, tải lại dữ liệu và báo
 "Thông tin thanh toán đã thay đổi, vui lòng kiểm tra lại."
 
 ## 3. Phiên bản dữ liệu thanh toán
-- SQLite không có `rowversion` tự sinh như SQL Server, nên dùng cột `PhienBanThanhToan` (số nguyên) trên phiên, **do ứng dụng tự tăng**.
+- SQLite không có `rowversion` tự sinh như SQL Server, nên dùng cột `PaymentVersion` (số nguyên) trên phiên, **do ứng dụng tự tăng**.
 - Tăng 1 mỗi khi có thay đổi ảnh hưởng nội dung hoặc điều kiện thanh toán: dòng món được xác nhận, đổi trạng thái, bị từ chối hoặc hủy; yêu cầu hủy được tạo hoặc xử lý; sự cố được báo hoặc giải quyết; phiên được mở lại để gọi thêm.
 - Khi mở màn hình thanh toán, server trả về tổng tiền và phiên bản. Khi xác nhận thu tiền, giao diện gửi lại hai giá trị này để server so sánh.
 
