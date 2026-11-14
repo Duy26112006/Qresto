@@ -1,437 +1,498 @@
 <mxfile host="Electron">
   <diagram id="Sequence-TungDuy" name="Sequence-TungDuy">
-    <mxGraphModel dx="1006" dy="3546" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1950" pageHeight="2797" math="0" shadow="0">
+    <mxGraphModel dx="12575" dy="12622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1950" pageHeight="3259" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="title" parent="1" style="text;html=1;align=left;fontSize=16;fontStyle=1;" value="Qresto – Sơ đồ tuần tự: Gửi đơn gọi món (UC06), phối hợp phần phiên của Khánh Duy  |  Phụ trách: Nguyễn Tùng Duy" vertex="1">
-          <mxGeometry height="40" width="1600" x="78" y="-2730" as="geometry" />
+          <mxGeometry height="40" width="1600" x="78" y="-3170" as="geometry" />
         </mxCell>
         <mxCell id="L_kh" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=50;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Khách hàng" vertex="1">
-          <mxGeometry height="2635" width="130" x="63" y="-2675" as="geometry" />
+          <mxGeometry height="3097" width="130" x="63" y="-3115" as="geometry" />
         </mxCell>
         <mxCell id="L_br" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=50;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Trình duyệt (cart.js)" vertex="1">
-          <mxGeometry height="2635" width="130" x="313" y="-2675" as="geometry" />
+          <mxGeometry height="3097" width="130" x="313" y="-3115" as="geometry" />
         </mxCell>
         <mxCell id="L_ct" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=50;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="OrdersController" vertex="1">
-          <mxGeometry height="2635" width="130" x="593" y="-2675" as="geometry" />
+          <mxGeometry height="3097" width="130" x="593" y="-3115" as="geometry" />
         </mxCell>
         <mxCell id="L_sv" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=50;fontSize=12;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="OrderService" vertex="1">
-          <mxGeometry height="2635" width="130" x="873" y="-2675" as="geometry" />
+          <mxGeometry height="3097" width="130" x="873" y="-3115" as="geometry" />
         </mxCell>
         <mxCell id="L_ds" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=50;fontSize=12;fillColor=#ffe6cc;strokeColor=#d79b00;" value="DiningSessionService (Khánh Duy)" vertex="1">
-          <mxGeometry height="2635" width="130" x="1173" y="-2675" as="geometry" />
+          <mxGeometry height="3097" width="130" x="1173" y="-3115" as="geometry" />
         </mxCell>
         <mxCell id="L_db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=50;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;" value="CSDL SQLite (AppDbContext)" vertex="1">
-          <mxGeometry height="2635" width="130" x="1453" y="-2675" as="geometry" />
+          <mxGeometry height="3097" width="130" x="1453" y="-3115" as="geometry" />
         </mxCell>
         <mxCell id="L_hb" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=50;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;" value="SignalR Hub" vertex="1">
-          <mxGeometry height="2635" width="130" x="1713" y="-2675" as="geometry" />
+          <mxGeometry height="3097" width="130" x="1713" y="-3115" as="geometry" />
         </mxCell>
         <mxCell id="t1" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="1. Bấm «Gửi gọi món»" vertex="1">
-          <mxGeometry height="17" width="230" x="138" y="-2565" as="geometry" />
+          <mxGeometry height="17" width="230" x="138" y="-3005" as="geometry" />
         </mxCell>
         <mxCell id="m1" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="128" y="-2540" as="sourcePoint" />
-            <mxPoint x="378" y="-2540" as="targetPoint" />
+            <mxPoint x="128" y="-2980" as="sourcePoint" />
+            <mxPoint x="378" y="-2980" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="m2" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;rounded=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="423" y="-2516" />
-              <mxPoint x="423" y="-2480" />
+              <mxPoint x="423" y="-2956" />
+              <mxPoint x="423" y="-2920" />
             </Array>
-            <mxPoint x="378" y="-2516" as="sourcePoint" />
-            <mxPoint x="378" y="-2480" as="targetPoint" />
+            <mxPoint x="378" y="-2956" as="sourcePoint" />
+            <mxPoint x="378" y="-2920" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="t2" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="2. Kiểm tra giỏ không trống; sinh ClientRequestId nếu chưa có" vertex="1">
-          <mxGeometry height="36" width="210" x="430" y="-2516" as="geometry" />
+          <mxGeometry height="36" width="210" x="430" y="-2956" as="geometry" />
         </mxCell>
-        <mxCell id="t3" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="2. POST /Orders/Submit {ClientRequestId, TableCode, Lines[MenuItemId, SL, Ghi chú, Giá đang hiển thị]} + cookie truy cập" vertex="1">
-          <mxGeometry height="47" width="260" x="388" y="-2454" as="geometry" />
+        <mxCell id="t3" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="2. POST /Orders/Submit {ClientRequestId, TableCode, PageSessionId, Lines[MenuItemId, SL, Ghi chú, Giá đang hiển thị]} + cookie (nếu có)" vertex="1">
+          <mxGeometry height="62" width="260" x="388" y="-2894" as="geometry" />
         </mxCell>
         <mxCell id="m3" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="378" y="-2399" as="sourcePoint" />
-            <mxPoint x="658" y="-2399" as="targetPoint" />
+            <mxPoint x="378" y="-2824" as="sourcePoint" />
+            <mxPoint x="658" y="-2824" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="t4" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="3. SubmitOrderAsync(access, request)" vertex="1">
-          <mxGeometry height="17" width="260" x="668" y="-2375" as="geometry" />
+          <mxGeometry height="17" width="260" x="668" y="-2800" as="geometry" />
         </mxCell>
         <mxCell id="m4" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="658" y="-2350" as="sourcePoint" />
-            <mxPoint x="938" y="-2350" as="targetPoint" />
+            <mxPoint x="658" y="-2775" as="sourcePoint" />
+            <mxPoint x="938" y="-2775" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="m5" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;rounded=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="983" y="-2326" />
-              <mxPoint x="983" y="-2290" />
+              <mxPoint x="983" y="-2751" />
+              <mxPoint x="983" y="-2715" />
             </Array>
-            <mxPoint x="938" y="-2326" as="sourcePoint" />
-            <mxPoint x="938" y="-2290" as="targetPoint" />
+            <mxPoint x="938" y="-2751" as="sourcePoint" />
+            <mxPoint x="938" y="-2715" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="t5" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="3. Kiểm tra dữ liệu: giỏ ≠ trống, SL 1–50, ghi chú ≤ 300 ký tự" vertex="1">
-          <mxGeometry height="36" width="210" x="990" y="-2326" as="geometry" />
+          <mxGeometry height="36" width="210" x="990" y="-2751" as="geometry" />
         </mxCell>
         <mxCell id="t6" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="InvalidInput(Issues)" vertex="1">
-          <mxGeometry height="17" width="260" x="668" y="-2216" as="geometry" />
+          <mxGeometry height="17" width="260" x="668" y="-2641" as="geometry" />
         </mxCell>
         <mxCell id="m6" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-2191" as="sourcePoint" />
-            <mxPoint x="658" y="-2191" as="targetPoint" />
+            <mxPoint x="938" y="-2616" as="sourcePoint" />
+            <mxPoint x="658" y="-2616" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="t7" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="400 + lỗi theo từng dòng; giỏ giữ nguyên" vertex="1">
-          <mxGeometry height="17" width="260" x="388" y="-2167" as="geometry" />
+          <mxGeometry height="17" width="260" x="388" y="-2592" as="geometry" />
         </mxCell>
         <mxCell id="m7" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="658" y="-2142" as="sourcePoint" />
-            <mxPoint x="378" y="-2142" as="targetPoint" />
+            <mxPoint x="658" y="-2567" as="sourcePoint" />
+            <mxPoint x="378" y="-2567" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="f8" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
-          <mxGeometry height="128" width="1620" x="268" y="-2252" as="geometry" />
+          <mxGeometry height="128" width="1620" x="268" y="-2677" as="geometry" />
         </mxCell>
         <mxCell id="g8" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A1: Dữ liệu không hợp lệ]" vertex="1">
-          <mxGeometry height="18" width="1500" x="328" y="-2249" as="geometry" />
+          <mxGeometry height="18" width="1500" x="328" y="-2674" as="geometry" />
         </mxCell>
         <mxCell id="t9" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="4. BEGIN TRANSACTION" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-2108" as="geometry" />
+          <mxGeometry height="17" width="560" x="948" y="-2533" as="geometry" />
         </mxCell>
         <mxCell id="m9" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-2083" as="sourcePoint" />
-            <mxPoint x="1518" y="-2083" as="targetPoint" />
+            <mxPoint x="938" y="-2508" as="sourcePoint" />
+            <mxPoint x="1518" y="-2508" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t10" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="4. GetActiveSessionAsync(tableId); ValidateAccessAsync(cookie)" vertex="1">
-          <mxGeometry height="32" width="280" x="948" y="-2059" as="geometry" />
+        <mxCell id="t10" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="4. GetActiveSessionAsync(tableId); đối chiếu PageSessionId và cookie" vertex="1">
+          <mxGeometry height="32" width="280" x="948" y="-2484" as="geometry" />
         </mxCell>
         <mxCell id="m10" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-2019" as="sourcePoint" />
-            <mxPoint x="1238" y="-2019" as="targetPoint" />
+            <mxPoint x="938" y="-2444" as="sourcePoint" />
+            <mxPoint x="1238" y="-2444" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t11" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="phiên đang hoạt động (hoặc null); quyền hợp lệ?" vertex="1">
-          <mxGeometry height="17" width="280" x="948" y="-1995" as="geometry" />
+        <mxCell id="t11" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="phiên hiện tại (hoặc null) + quyết định: vào phiên / từ chối" vertex="1">
+          <mxGeometry height="32" width="280" x="948" y="-2420" as="geometry" />
         </mxCell>
         <mxCell id="m11" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1238" y="-1970" as="sourcePoint" />
-            <mxPoint x="938" y="-1970" as="targetPoint" />
+            <mxPoint x="1238" y="-2380" as="sourcePoint" />
+            <mxPoint x="938" y="-2380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="n12" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=4;" value="Bàn chưa có phiên → null: bỏ qua kiểm tra quyền và bước 5; phiên được tạo ở bước 7." vertex="1">
-          <mxGeometry height="40" width="330" x="958" y="-1946" as="geometry" />
+        <mxCell id="n12" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=4;" value="PageSessionId = null (trang tải lúc bàn chưa có phiên) và nay bàn Đang phục vụ → vào phiên đó, quyền cấp ở bước 7, không cần quét lại QR. Bàn chưa có phiên → phiên được tạo ở bước 7." vertex="1">
+          <mxGeometry height="53" width="380" x="958" y="-2356" as="geometry" />
         </mxCell>
         <mxCell id="t13" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-1836" as="geometry" />
+          <mxGeometry height="17" width="560" x="948" y="-2233" as="geometry" />
         </mxCell>
         <mxCell id="m13" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-1811" as="sourcePoint" />
-            <mxPoint x="1518" y="-1811" as="targetPoint" />
+            <mxPoint x="938" y="-2208" as="sourcePoint" />
+            <mxPoint x="1518" y="-2208" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t14" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="SessionClosed hoặc NoAccess" vertex="1">
-          <mxGeometry height="17" width="260" x="668" y="-1787" as="geometry" />
+        <mxCell id="t14" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="SessionClosed" vertex="1">
+          <mxGeometry height="17" width="260" x="668" y="-2184" as="geometry" />
         </mxCell>
         <mxCell id="m14" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-1762" as="sourcePoint" />
-            <mxPoint x="658" y="-1762" as="targetPoint" />
+            <mxPoint x="938" y="-2159" as="sourcePoint" />
+            <mxPoint x="658" y="-2159" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t15" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="409 hoặc 403 + thông báo; giỏ giữ nguyên" vertex="1">
-          <mxGeometry height="17" width="260" x="388" y="-1738" as="geometry" />
+        <mxCell id="t15" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="409 + thông báo tạm dừng gọi món; giỏ giữ nguyên" vertex="1">
+          <mxGeometry height="32" width="260" x="388" y="-2135" as="geometry" />
         </mxCell>
         <mxCell id="m15" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="658" y="-1713" as="sourcePoint" />
-            <mxPoint x="378" y="-1713" as="targetPoint" />
+            <mxPoint x="658" y="-2095" as="sourcePoint" />
+            <mxPoint x="378" y="-2095" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="f16" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
-          <mxGeometry height="177" width="1620" x="268" y="-1872" as="geometry" />
+          <mxGeometry height="192" width="1620" x="268" y="-2269" as="geometry" />
         </mxCell>
-        <mxCell id="g16" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A2/A3: Phiên Chờ thanh toán hoặc đã kết thúc; cookie không thuộc phiên hiện tại]" vertex="1">
-          <mxGeometry height="18" width="1500" x="328" y="-1869" as="geometry" />
+        <mxCell id="g16" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A2: Bàn đang Chờ thanh toán (kể cả khi trình duyệt chưa có quyền)]" vertex="1">
+          <mxGeometry height="18" width="1500" x="328" y="-2266" as="geometry" />
         </mxCell>
-        <mxCell id="t17" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="5. Tra Orders theo (DiningSessionId, ClientRequestId) – chỉ khi đã có phiên" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-1679" as="geometry" />
+        <mxCell id="t17" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-2013" as="geometry" />
         </mxCell>
         <mxCell id="m17" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-1654" as="sourcePoint" />
-            <mxPoint x="1518" y="-1654" as="targetPoint" />
+            <mxPoint x="938" y="-1988" as="sourcePoint" />
+            <mxPoint x="1518" y="-1988" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t18" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="đã có đơn với mã này? (có / không)" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-1630" as="geometry" />
+        <mxCell id="t18" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="StaleSession hoặc NoAccess" vertex="1">
+          <mxGeometry height="17" width="260" x="668" y="-1964" as="geometry" />
         </mxCell>
         <mxCell id="m18" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1518" y="-1605" as="sourcePoint" />
-            <mxPoint x="938" y="-1605" as="targetPoint" />
+            <mxPoint x="938" y="-1939" as="sourcePoint" />
+            <mxPoint x="658" y="-1939" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t19" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK (chưa ghi gì)" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-1533" as="geometry" />
+        <mxCell id="t19" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="409: quét lại QR (phiên cũ) hoặc 403: nhờ nhân viên (mất cookie)" vertex="1">
+          <mxGeometry height="32" width="260" x="388" y="-1915" as="geometry" />
         </mxCell>
-        <mxCell id="m19" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
+        <mxCell id="m19" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-1508" as="sourcePoint" />
-            <mxPoint x="1518" y="-1508" as="targetPoint" />
+            <mxPoint x="658" y="-1875" as="sourcePoint" />
+            <mxPoint x="378" y="-1875" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t20" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="Duplicate(OrderId đã tạo)" vertex="1">
-          <mxGeometry height="17" width="260" x="668" y="-1484" as="geometry" />
+        <mxCell id="f20" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
+          <mxGeometry height="192" width="1620" x="268" y="-2049" as="geometry" />
         </mxCell>
-        <mxCell id="m20" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+        <mxCell id="g20" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A3: Trang thuộc phiên đã kết thúc, hoặc đúng phiên nhưng trình duyệt mất quyền]" vertex="1">
+          <mxGeometry height="18" width="1500" x="328" y="-2046" as="geometry" />
+        </mxCell>
+        <mxCell id="t21" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="5. Tra Orders theo (DiningSessionId, ClientRequestId) – chỉ khi đã có phiên" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-1841" as="geometry" />
+        </mxCell>
+        <mxCell id="m21" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-1459" as="sourcePoint" />
-            <mxPoint x="658" y="-1459" as="targetPoint" />
+            <mxPoint x="938" y="-1816" as="sourcePoint" />
+            <mxPoint x="1518" y="-1816" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t21" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="200 + đơn đã có; không tạo thêm" vertex="1">
-          <mxGeometry height="17" width="260" x="388" y="-1435" as="geometry" />
+        <mxCell id="t22" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="đã có đơn với mã này? (có / không)" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-1792" as="geometry" />
         </mxCell>
-        <mxCell id="m21" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+        <mxCell id="m22" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="658" y="-1410" as="sourcePoint" />
-            <mxPoint x="378" y="-1410" as="targetPoint" />
+            <mxPoint x="1518" y="-1767" as="sourcePoint" />
+            <mxPoint x="938" y="-1767" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="f22" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
-          <mxGeometry height="177" width="1620" x="268" y="-1569" as="geometry" />
-        </mxCell>
-        <mxCell id="g22" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A4: ClientRequestId đã có trong phiên → gửi trùng]" vertex="1">
-          <mxGeometry height="18" width="1500" x="328" y="-1566" as="geometry" />
-        </mxCell>
-        <mxCell id="t23" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="6. Đọc MenuItem theo danh sách MenuItemId" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-1376" as="geometry" />
+        <mxCell id="t23" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK (chưa ghi gì)" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-1695" as="geometry" />
         </mxCell>
         <mxCell id="m23" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-1351" as="sourcePoint" />
-            <mxPoint x="1518" y="-1351" as="targetPoint" />
+            <mxPoint x="938" y="-1670" as="sourcePoint" />
+            <mxPoint x="1518" y="-1670" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t24" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="Price, Status hiện tại" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-1327" as="geometry" />
+        <mxCell id="t24" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="Duplicate(OrderId đã tạo)" vertex="1">
+          <mxGeometry height="17" width="260" x="668" y="-1646" as="geometry" />
         </mxCell>
         <mxCell id="m24" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1518" y="-1302" as="sourcePoint" />
-            <mxPoint x="938" y="-1302" as="targetPoint" />
+            <mxPoint x="938" y="-1621" as="sourcePoint" />
+            <mxPoint x="658" y="-1621" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t25" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-1230" as="geometry" />
+        <mxCell id="t25" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="200 + đơn đã có; không tạo thêm" vertex="1">
+          <mxGeometry height="17" width="260" x="388" y="-1597" as="geometry" />
         </mxCell>
-        <mxCell id="m25" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
+        <mxCell id="m25" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-1205" as="sourcePoint" />
-            <mxPoint x="1518" y="-1205" as="targetPoint" />
+            <mxPoint x="658" y="-1572" as="sourcePoint" />
+            <mxPoint x="378" y="-1572" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t26" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ItemUnavailable(Issues: danh sách món)" vertex="1">
-          <mxGeometry height="17" width="260" x="668" y="-1181" as="geometry" />
+        <mxCell id="f26" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
+          <mxGeometry height="177" width="1620" x="268" y="-1731" as="geometry" />
         </mxCell>
-        <mxCell id="m26" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+        <mxCell id="g26" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A4: ClientRequestId đã có trong phiên → gửi trùng]" vertex="1">
+          <mxGeometry height="18" width="1500" x="328" y="-1728" as="geometry" />
+        </mxCell>
+        <mxCell id="t27" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="6. Đọc MenuItem theo danh sách MenuItemId" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-1538" as="geometry" />
+        </mxCell>
+        <mxCell id="m27" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-1156" as="sourcePoint" />
-            <mxPoint x="658" y="-1156" as="targetPoint" />
+            <mxPoint x="938" y="-1513" as="sourcePoint" />
+            <mxPoint x="1518" y="-1513" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t27" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="409 + món hết; khách bỏ món rồi gửi lại (mã mới)" vertex="1">
-          <mxGeometry height="32" width="260" x="388" y="-1132" as="geometry" />
+        <mxCell id="t28" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="Price, Status hiện tại" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-1489" as="geometry" />
         </mxCell>
-        <mxCell id="m27" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+        <mxCell id="m28" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="658" y="-1092" as="sourcePoint" />
-            <mxPoint x="378" y="-1092" as="targetPoint" />
+            <mxPoint x="1518" y="-1464" as="sourcePoint" />
+            <mxPoint x="938" y="-1464" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="f28" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
-          <mxGeometry height="192" width="1620" x="268" y="-1266" as="geometry" />
-        </mxCell>
-        <mxCell id="g28" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A5: Có món Tạm hết hoặc Ngừng bán]" vertex="1">
-          <mxGeometry height="18" width="1500" x="328" y="-1263" as="geometry" />
         </mxCell>
         <mxCell id="t29" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-1010" as="geometry" />
+          <mxGeometry height="17" width="560" x="948" y="-1392" as="geometry" />
         </mxCell>
         <mxCell id="m29" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-985" as="sourcePoint" />
-            <mxPoint x="1518" y="-985" as="targetPoint" />
+            <mxPoint x="938" y="-1367" as="sourcePoint" />
+            <mxPoint x="1518" y="-1367" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t30" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="PriceChanged(Issues: giá mới)" vertex="1">
-          <mxGeometry height="17" width="260" x="668" y="-961" as="geometry" />
+        <mxCell id="t30" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ItemUnavailable(Issues: danh sách món)" vertex="1">
+          <mxGeometry height="17" width="260" x="668" y="-1343" as="geometry" />
         </mxCell>
         <mxCell id="m30" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-936" as="sourcePoint" />
-            <mxPoint x="658" y="-936" as="targetPoint" />
+            <mxPoint x="938" y="-1318" as="sourcePoint" />
+            <mxPoint x="658" y="-1318" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t31" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="409 + giá mới; khách xác nhận lại rồi gửi lại (mã mới)" vertex="1">
-          <mxGeometry height="32" width="260" x="388" y="-912" as="geometry" />
+        <mxCell id="t31" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="409 + món hết; khách bỏ món rồi gửi lại (mã mới)" vertex="1">
+          <mxGeometry height="32" width="260" x="388" y="-1294" as="geometry" />
         </mxCell>
         <mxCell id="m31" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="658" y="-872" as="sourcePoint" />
-            <mxPoint x="378" y="-872" as="targetPoint" />
+            <mxPoint x="658" y="-1254" as="sourcePoint" />
+            <mxPoint x="378" y="-1254" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="f32" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
-          <mxGeometry height="192" width="1620" x="268" y="-1046" as="geometry" />
+          <mxGeometry height="192" width="1620" x="268" y="-1428" as="geometry" />
         </mxCell>
-        <mxCell id="g32" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A6: Giá hiện tại ≠ giá khách đang thấy]" vertex="1">
-          <mxGeometry height="18" width="1500" x="328" y="-1043" as="geometry" />
+        <mxCell id="g32" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A5: Có món Tạm hết hoặc Ngừng bán]" vertex="1">
+          <mxGeometry height="18" width="1500" x="328" y="-1425" as="geometry" />
         </mxCell>
-        <mxCell id="t33" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="7. GetOrCreateActiveSessionAsync(tableId, token)" vertex="1">
-          <mxGeometry height="32" width="280" x="948" y="-838" as="geometry" />
+        <mxCell id="t33" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-1172" as="geometry" />
         </mxCell>
         <mxCell id="m33" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-798" as="sourcePoint" />
-            <mxPoint x="1238" y="-798" as="targetPoint" />
+            <mxPoint x="938" y="-1147" as="sourcePoint" />
+            <mxPoint x="1518" y="-1147" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t34" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="7. INSERT DiningSession, SessionAccess (nếu bàn chưa có phiên hoặc trình duyệt chưa có quyền)" vertex="1">
-          <mxGeometry height="47" width="260" x="1248" y="-774" as="geometry" />
+        <mxCell id="t34" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="PriceChanged(Issues: giá mới)" vertex="1">
+          <mxGeometry height="17" width="260" x="668" y="-1123" as="geometry" />
         </mxCell>
-        <mxCell id="m34" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
+        <mxCell id="m34" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1238" y="-719" as="sourcePoint" />
-            <mxPoint x="1518" y="-719" as="targetPoint" />
+            <mxPoint x="938" y="-1098" as="sourcePoint" />
+            <mxPoint x="658" y="-1098" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t35" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="phiên + quyền truy cập" vertex="1">
-          <mxGeometry height="17" width="280" x="948" y="-695" as="geometry" />
+        <mxCell id="t35" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="409 + giá mới; khách xác nhận lại rồi gửi lại (mã mới)" vertex="1">
+          <mxGeometry height="32" width="260" x="388" y="-1074" as="geometry" />
         </mxCell>
         <mxCell id="m35" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1238" y="-670" as="sourcePoint" />
-            <mxPoint x="938" y="-670" as="targetPoint" />
+            <mxPoint x="658" y="-1034" as="sourcePoint" />
+            <mxPoint x="378" y="-1034" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t36" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="8. INSERT Order + OrderItem (ChoXacNhan, UnitPrice = giá server)" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-646" as="geometry" />
+        <mxCell id="f36" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
+          <mxGeometry height="192" width="1620" x="268" y="-1208" as="geometry" />
         </mxCell>
-        <mxCell id="m36" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-621" as="sourcePoint" />
-            <mxPoint x="1518" y="-621" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="g36" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A6: Giá hiện tại ≠ giá khách đang thấy]" vertex="1">
+          <mxGeometry height="18" width="1500" x="328" y="-1205" as="geometry" />
         </mxCell>
-        <mxCell id="t37" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="9. SaveChanges + COMMIT" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-597" as="geometry" />
+        <mxCell id="t37" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="7. GetOrCreateActiveSessionAsync(tableId, token)" vertex="1">
+          <mxGeometry height="32" width="280" x="948" y="-1000" as="geometry" />
         </mxCell>
         <mxCell id="m37" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-572" as="sourcePoint" />
-            <mxPoint x="1518" y="-572" as="targetPoint" />
+            <mxPoint x="938" y="-960" as="sourcePoint" />
+            <mxPoint x="1238" y="-960" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t38" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK; đọc lại đơn do yêu cầu kia tạo" vertex="1">
-          <mxGeometry height="17" width="560" x="948" y="-500" as="geometry" />
+        <mxCell id="t38" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="7. INSERT DiningSession, SessionAccess (nếu bàn chưa có phiên hoặc trình duyệt chưa có quyền)" vertex="1">
+          <mxGeometry height="47" width="260" x="1248" y="-936" as="geometry" />
         </mxCell>
         <mxCell id="m38" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-475" as="sourcePoint" />
-            <mxPoint x="1518" y="-475" as="targetPoint" />
+            <mxPoint x="1238" y="-881" as="sourcePoint" />
+            <mxPoint x="1518" y="-881" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t39" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="Duplicate(OrderId đã tạo)" vertex="1">
-          <mxGeometry height="17" width="260" x="668" y="-451" as="geometry" />
+        <mxCell id="t39" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK" vertex="1">
+          <mxGeometry height="17" width="260" x="1248" y="-809" as="geometry" />
         </mxCell>
-        <mxCell id="m39" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+        <mxCell id="m39" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-426" as="sourcePoint" />
-            <mxPoint x="658" y="-426" as="targetPoint" />
+            <mxPoint x="1238" y="-784" as="sourcePoint" />
+            <mxPoint x="1518" y="-784" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t40" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="200 + đơn đã có; không tạo thêm" vertex="1">
-          <mxGeometry height="17" width="260" x="388" y="-402" as="geometry" />
-        </mxCell>
-        <mxCell id="m40" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="658" y="-377" as="sourcePoint" />
-            <mxPoint x="378" y="-377" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="f41" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
-          <mxGeometry height="177" width="1620" x="268" y="-536" as="geometry" />
-        </mxCell>
-        <mxCell id="g41" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A4: Vi phạm UNIQUE (DiningSessionId, ClientRequestId) do gửi đồng thời]" vertex="1">
-          <mxGeometry height="18" width="1500" x="328" y="-533" as="geometry" />
-        </mxCell>
-        <mxCell id="t42" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="10. Sau COMMIT: phát «NewOrder» tới nhóm Phục vụ (SignalR)" vertex="1">
-          <mxGeometry height="17" width="820" x="948" y="-343" as="geometry" />
-        </mxCell>
-        <mxCell id="m42" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-318" as="sourcePoint" />
-            <mxPoint x="1778" y="-318" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="t43" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="11. Success(OrderId)" vertex="1">
-          <mxGeometry height="17" width="260" x="668" y="-294" as="geometry" />
-        </mxCell>
-        <mxCell id="m43" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="938" y="-269" as="sourcePoint" />
-            <mxPoint x="658" y="-269" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="t44" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="11. 200 OK {orderId, các dòng món} + Set-Cookie nếu vừa được cấp quyền" vertex="1">
-          <mxGeometry height="32" width="260" x="388" y="-245" as="geometry" />
-        </mxCell>
-        <mxCell id="m44" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="658" y="-205" as="sourcePoint" />
-            <mxPoint x="378" y="-205" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="m45" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;rounded=0;" value="">
+        <mxCell id="m40" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;rounded=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="423" y="-181" />
-              <mxPoint x="423" y="-145" />
+              <mxPoint x="983" y="-760" />
+              <mxPoint x="983" y="-709" />
             </Array>
-            <mxPoint x="378" y="-181" as="sourcePoint" />
-            <mxPoint x="378" y="-145" as="targetPoint" />
+            <mxPoint x="938" y="-760" as="sourcePoint" />
+            <mxPoint x="938" y="-709" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="t45" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="12. Xóa giỏ, hiển thị trong «Món đã gọi»" vertex="1">
-          <mxGeometry height="36" width="210" x="430" y="-181" as="geometry" />
+        <mxCell id="t40" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="Thử lại từ bước 4 (1 lần): phiên đã tồn tại → vào phiên đó, cấp quyền; nếu Chờ thanh toán → A2" vertex="1">
+          <mxGeometry height="51" width="210" x="990" y="-760" as="geometry" />
         </mxCell>
-        <mxCell id="t46" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="12. Thông báo gửi thành công" vertex="1">
-          <mxGeometry height="17" width="230" x="138" y="-119" as="geometry" />
+        <mxCell id="f41" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="opt" vertex="1">
+          <mxGeometry height="156" width="1620" x="268" y="-845" as="geometry" />
+        </mxCell>
+        <mxCell id="g41" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[Thua cuộc đua tạo phiên: vi phạm UNIQUE (một phiên hoạt động mỗi bàn)]" vertex="1">
+          <mxGeometry height="18" width="1500" x="328" y="-842" as="geometry" />
+        </mxCell>
+        <mxCell id="t42" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="phiên + quyền truy cập" vertex="1">
+          <mxGeometry height="17" width="280" x="948" y="-673" as="geometry" />
+        </mxCell>
+        <mxCell id="m42" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1238" y="-648" as="sourcePoint" />
+            <mxPoint x="938" y="-648" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t43" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="8. INSERT Order + OrderItem (ChoXacNhan, UnitPrice = giá server)" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-624" as="geometry" />
+        </mxCell>
+        <mxCell id="m43" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="938" y="-599" as="sourcePoint" />
+            <mxPoint x="1518" y="-599" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t44" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="9. SaveChanges + COMMIT" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-575" as="geometry" />
+        </mxCell>
+        <mxCell id="m44" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="938" y="-550" as="sourcePoint" />
+            <mxPoint x="1518" y="-550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t45" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="ROLLBACK; đọc lại đơn do yêu cầu kia tạo" vertex="1">
+          <mxGeometry height="17" width="560" x="948" y="-478" as="geometry" />
+        </mxCell>
+        <mxCell id="m45" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="938" y="-453" as="sourcePoint" />
+            <mxPoint x="1518" y="-453" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t46" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="Duplicate(OrderId đã tạo)" vertex="1">
+          <mxGeometry height="17" width="260" x="668" y="-429" as="geometry" />
         </mxCell>
         <mxCell id="m46" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="378" y="-94" as="sourcePoint" />
-            <mxPoint x="128" y="-94" as="targetPoint" />
+            <mxPoint x="938" y="-404" as="sourcePoint" />
+            <mxPoint x="658" y="-404" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="lg" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;strokeColor=#999999;spacing=6;" value="&lt;b&gt;Chú thích&lt;/b&gt;&lt;br&gt;Mũi tên liền: lời gọi. Nét đứt: giá trị trả về. Số bước khớp với bảng luồng chính trong tài liệu đặc tả UC06; A1–A6 khớp bảng luồng&lt;br&gt;thay thế.&lt;br&gt;break: khối thoát, luồng dừng tại đó và giỏ của khách được giữ lại. A7 (mất kết nối, lỗi hệ thống): hủy giao dịch, báo lỗi, giữ giỏ –&lt;br&gt;không vẽ riêng.&lt;br&gt;Bước 4 đến 9 cùng một giao dịch: không tạo phiên rỗng, không ghi đơn dở dang. Cam: DiningSessionService thuộc phần Khánh Duy." vertex="1">
-          <mxGeometry height="112" width="760" x="78" y="-30" as="geometry" />
+        <mxCell id="t47" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="200 + đơn đã có; không tạo thêm" vertex="1">
+          <mxGeometry height="17" width="260" x="388" y="-380" as="geometry" />
+        </mxCell>
+        <mxCell id="m47" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="658" y="-355" as="sourcePoint" />
+            <mxPoint x="378" y="-355" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f48" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=50;height=22;fontSize=11;fontStyle=1;swimlaneFillColor=none;" value="break" vertex="1">
+          <mxGeometry height="177" width="1620" x="268" y="-514" as="geometry" />
+        </mxCell>
+        <mxCell id="g48" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;fontStyle=1;" value="[A4: Vi phạm UNIQUE (DiningSessionId, ClientRequestId) do gửi đồng thời]" vertex="1">
+          <mxGeometry height="18" width="1500" x="328" y="-511" as="geometry" />
+        </mxCell>
+        <mxCell id="t49" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="10. Sau COMMIT: phát «NewOrder» tới nhóm Phục vụ (SignalR)" vertex="1">
+          <mxGeometry height="17" width="820" x="948" y="-321" as="geometry" />
+        </mxCell>
+        <mxCell id="m49" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="938" y="-296" as="sourcePoint" />
+            <mxPoint x="1778" y="-296" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t50" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="11. Success(OrderId)" vertex="1">
+          <mxGeometry height="17" width="260" x="668" y="-272" as="geometry" />
+        </mxCell>
+        <mxCell id="m50" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="938" y="-247" as="sourcePoint" />
+            <mxPoint x="658" y="-247" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t51" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="11. 200 OK {orderId, sessionId, các dòng món} + Set-Cookie nếu vừa được cấp quyền" vertex="1">
+          <mxGeometry height="32" width="260" x="388" y="-223" as="geometry" />
+        </mxCell>
+        <mxCell id="m51" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="658" y="-183" as="sourcePoint" />
+            <mxPoint x="378" y="-183" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m52" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="423" y="-159" />
+              <mxPoint x="423" y="-123" />
+            </Array>
+            <mxPoint x="378" y="-159" as="sourcePoint" />
+            <mxPoint x="378" y="-123" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t52" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="12. Xóa giỏ, hiển thị trong «Món đã gọi»" vertex="1">
+          <mxGeometry height="36" width="210" x="430" y="-159" as="geometry" />
+        </mxCell>
+        <mxCell id="t53" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;spacing=0;" value="12. Thông báo gửi thành công" vertex="1">
+          <mxGeometry height="17" width="230" x="138" y="-97" as="geometry" />
+        </mxCell>
+        <mxCell id="m53" edge="1" parent="1" style="html=1;endArrow=block;endFill=1;dashed=1;endArrow=open;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="378" y="-72" as="sourcePoint" />
+            <mxPoint x="128" y="-72" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg" parent="1" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;fontSize=11;strokeColor=#999999;spacing=6;" value="&lt;b&gt;Chú thích&lt;/b&gt;&lt;br&gt;Mũi tên liền: lời gọi. Nét đứt: giá trị trả về. Số bước khớp với bảng luồng chính trong tài liệu đặc tả UC06; A1–A6 khớp bảng luồng&lt;br&gt;thay thế. Trang cập nhật PageSessionId theo sessionId trả về.&lt;br&gt;break: khối thoát, luồng dừng tại đó và giỏ của khách được giữ lại. A7 (mất kết nối, lỗi hệ thống): hủy giao dịch, báo lỗi, giữ giỏ –&lt;br&gt;không vẽ riêng.&lt;br&gt;Bước 4 đến 9 cùng một giao dịch: không tạo phiên rỗng, không ghi đơn dở dang. Cam: DiningSessionService thuộc phần Khánh Duy." vertex="1">
+          <mxGeometry height="112" width="760" x="78" y="-8" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
