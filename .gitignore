@@ -1,0 +1,20 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.vscode/
+.idea/
+*.swp
+
+## Du lieu chay thu, khong dua len git
+src/Qresto/App_Data/
+*.db
+*.db-shm
+*.db-wal
+src/Qresto/wwwroot/uploads/
+
+## Thong tin rieng
+appsettings.*.local.json
+.env
