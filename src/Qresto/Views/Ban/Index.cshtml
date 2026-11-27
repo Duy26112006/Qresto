@@ -1,0 +1,66 @@
+@model List<DiningTable>
+@{
+    ViewData["Title"] = "Bàn và mã QR";
+    string baseUrl = ViewBag.BaseUrl;
+}
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <h5 class="mb-0">Bàn và mã QR</h5>
+    <a asp-action="InQr" class="btn btn-sm btn-outline-primary">In QR tất cả bàn</a>
+</div>
+
+@if (baseUrl.Contains("localhost") || baseUrl.Contains("127.0.0.1"))
+{
+    <div class="alert alert-warning small">
+        Bạn đang mở web bằng <b>@baseUrl</b>. QR trỏ tới localhost thì điện thoại không mở được.
+        Hãy mở web bằng IP của máy (vd: http://192.168.1.5:5037) hoặc cấu hình <code>Qresto:PublicBaseUrl</code> trong appsettings.json rồi in lại QR.
+    </div>
+}
+
+<div class="row">
+    <div class="col-lg-8">
+        <table class="table table-sm bg-white align-middle">
+            <thead><tr><th>Mã</th><th>Tên bàn</th><th>Link QR</th><th>Trạng thái</th><th></th></tr></thead>
+            <tbody>
+            @foreach (var t in Model)
+            {
+                var fid = "ban" + t.Id;
+                var link = baseUrl + "/ban/" + t.QrToken;
+                <tr class="@(t.IsActive ? "" : "text-muted")">
+                    <td style="width:90px"><input name="code" form="@fid" value="@t.Code" class="form-control form-control-sm" /></td>
+                    <td><input name="name" form="@fid" value="@t.Name" class="form-control form-control-sm" /></td>
+                    <td class="small"><a href="@link" target="_blank">@link</a></td>
+                    <td>@(t.IsActive ? "Đang dùng" : "Ngừng")</td>
+                    <td class="text-nowrap">
+                        <form asp-action="Sua" method="post" id="@fid" class="d-inline">
+                            <input type="hidden" name="id" value="@t.Id" />
+                            <button class="btn btn-sm btn-outline-primary">Lưu</button>
+                        </form>
+                        <a asp-action="InQr" asp-route-id="@t.Id" class="btn btn-sm btn-outline-secondary">QR</a>
+                        <form asp-action="DoiQr" method="post" class="d-inline" onsubmit="return confirm('Tạo QR mới? QR cũ đang dán trên bàn sẽ không dùng được nữa.')">
+                            <input type="hidden" name="id" value="@t.Id" />
+                            <button class="btn btn-sm btn-outline-warning">Đổi QR</button>
+                        </form>
+                        <form asp-action="DoiTrangThai" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@t.Id" />
+                            <input type="hidden" name="active" value="@((!t.IsActive).ToString().ToLower())" />
+                            <button class="btn btn-sm @(t.IsActive ? "btn-outline-danger" : "btn-outline-success")">@(t.IsActive ? "Ngừng dùng" : "Dùng lại")</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">Thêm bàn</div>
+            <div class="card-body">
+                <form asp-action="Them" method="post">
+                    <div class="mb-2"><input name="code" class="form-control" placeholder="Mã bàn, vd B11" required maxlength="20" /></div>
+                    <div class="mb-2"><input name="name" class="form-control" placeholder="Tên bàn, vd Bàn 11" required maxlength="50" /></div>
+                    <button class="btn btn-qresto">Thêm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

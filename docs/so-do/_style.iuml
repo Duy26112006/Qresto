@@ -1,0 +1,24 @@
+skinparam defaultFontName DejaVu Sans
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam backgroundColor white
+skinparam ArrowColor #333333
+skinparam ActorBorderColor #333333
+skinparam UsecaseBackgroundColor #FFF8E7
+skinparam UsecaseBorderColor #B7950B
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassHeaderBackgroundColor #F2F2F2
+skinparam StateBackgroundColor #EEF4FB
+skinparam StateBorderColor #4A6A8A
+skinparam ActivityBackgroundColor #FFFFFF
+skinparam ActivityBorderColor #555555
+skinparam ActivityDiamondBackgroundColor #FFF3C4
+skinparam NoteBackgroundColor #FFFBE6
+skinparam NoteBorderColor #C9B458
+skinparam SequenceLifeLineBorderColor #888888
+skinparam ParticipantBackgroundColor #F2F2F2
+skinparam ParticipantBorderColor #555555
+skinparam packageStyle rectangle
+skinparam titleFontSize 18
+skinparam titleFontStyle bold

@@ -1,0 +1,40 @@
+@startuml
+!include _style.iuml
+title Qresto - Tuần tự quét QR và vào thực đơn
+autonumber
+
+actor "Khách" as K
+participant "Trình duyệt\n(goimon.js)" as B
+participant "GoiMonController" as C
+participant "DiningSessionService" as S
+participant "MenuService" as M
+database "SQLite" as DB
+
+K -> B : Quét QR trên bàn (/ban/{token})
+B -> C : GET /ban/{token}
+C -> C : Lấy GuestKey từ cookie\n(chưa có thì tạo mới)
+C -> S : EnterTableAsync(token, guestKey)
+S -> DB : Tìm bàn theo QrToken
+alt QR sai hoặc bàn ngừng sử dụng
+  S --> C : BusinessException(TableNotFound)
+  C --> B : Trang báo lỗi, không nhận đơn
+else Bàn hợp lệ
+  S -> DB : Tìm phiên đang hoạt động của bàn
+  opt Bàn đang có phiên
+    S -> DB : Cấp quyền GuestSessionAccess\ncho trình duyệt này (nếu chưa có)
+  end
+  S --> C : Bàn, phiên (có thể null), TurnVersion
+  C -> M : GetGuestMenuAsync()
+  M -> DB : Danh mục và món chưa ngừng bán
+  C --> B : Trang thực đơn + PageSessionId + PageTurn
+end
+note over S, DB
+  Quét QR KHÔNG tạo phiên.
+  Phiên chỉ được tạo khi lưu thành công đơn đầu tiên.
+end note
+
+loop mỗi 5 giây
+  B -> C : GET /ban/{token}/trang-thai?sessionId&turn
+  C --> B : Món của bàn, tạm tính, tình trạng món
+end
+@enduml

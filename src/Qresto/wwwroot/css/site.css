@@ -1,0 +1,76 @@
+/* Giao dien nhan vien */
+:root {
+    --qresto: #c0392b;
+    --qresto-dam: #a93226;
+}
+
+body {
+    background: #f4f5f7;
+    font-size: 15px;
+}
+
+.bg-qresto { background-color: var(--qresto) !important; }
+
+.btn-qresto {
+    background: var(--qresto);
+    border-color: var(--qresto);
+    color: #fff;
+}
+.btn-qresto:hover, .btn-qresto:focus {
+    background: var(--qresto-dam);
+    border-color: var(--qresto-dam);
+    color: #fff;
+}
+
+.card-header { font-weight: 600; }
+
+.the-mon {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-left: 4px solid #6c757d;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+}
+.the-mon.cho-lau { border-left-color: #dc3545; background: #fff6f6; }
+.the-mon.su-co { border-left-color: #fd7e14; background: #fff8ef; }
+.the-mon .ten { font-weight: 600; }
+.the-mon .ghi-chu { color: #b35c00; font-size: 14px; }
+.the-mon form { display: inline; }
+
+.cot-bep { min-height: 200px; }
+.cot-bep .card-body { padding: 8px; }
+
+.o-ban {
+    display: block;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+}
+.o-ban:hover { border-color: var(--qresto); }
+.o-ban.trong { background: #fafafa; color: #888; }
+.o-ban.dang-phuc-vu { border-top: 4px solid #198754; }
+.o-ban.cho-thanh-toan { border-top: 4px solid #fd7e14; }
+.o-ban.ngung { opacity: .5; }
+
+.nho { font-size: 13px; }
+
+.bang-gon td, .bang-gon th { padding: 4px 8px; vertical-align: middle; }
+
+.qr-o {
+    border: 1px dashed #999;
+    padding: 12px;
+    text-align: center;
+    page-break-inside: avoid;
+    background: #fff;
+}
+
+@media print {
+    nav, .khong-in, .toast-container { display: none !important; }
+    body { background: #fff; }
+    main { padding: 0 !important; }
+}
