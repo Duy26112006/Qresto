@@ -1,0 +1,28 @@
+@model Qresto.Controllers.LoginViewModel
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+<div class="row justify-content-center mt-4">
+    <div class="col-sm-8 col-md-5 col-lg-4">
+        <div class="card">
+            <div class="card-body p-4">
+                <h5 class="mb-3">Đăng nhập nhân viên</h5>
+                <form asp-action="DangNhap" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-2"></div>
+                    <input type="hidden" asp-for="ReturnUrl" />
+                    <div class="mb-3">
+                        <label asp-for="UserName" class="form-label"></label>
+                        <input asp-for="UserName" class="form-control" autofocus autocomplete="username" />
+                        <span asp-validation-for="UserName" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control" autocomplete="current-password" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+                    <button class="btn btn-qresto w-100">Đăng nhập</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

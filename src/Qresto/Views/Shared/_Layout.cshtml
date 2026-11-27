@@ -1,0 +1,99 @@
+@{
+    var fullName = User.FindFirst("FullName")?.Value ?? User.Identity?.Name;
+    string Active(string controller) =>
+        string.Equals(ViewContext.RouteData.Values["controller"]?.ToString(), controller, StringComparison.OrdinalIgnoreCase) ? "active" : "";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Qresto</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-qresto">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">Qresto</a>
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuChinh">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menuChinh">
+                    <ul class="navbar-nav me-auto">
+                        @if (User.IsInRole(Roles.PhucVu) || User.IsInRole(Roles.QuanLy))
+                        {
+                            <li class="nav-item"><a class="nav-link @Active("PhucVu")" asp-controller="PhucVu" asp-action="Index">Phục vụ</a></li>
+                        }
+                        @if (User.IsInRole(Roles.Bep) || User.IsInRole(Roles.QuanLy))
+                        {
+                            <li class="nav-item"><a class="nav-link @Active("Bep")" asp-controller="Bep" asp-action="Index">Bếp</a></li>
+                        }
+                        @if (User.IsInRole(Roles.QuanLy))
+                        {
+                            <li class="nav-item"><a class="nav-link @Active("QuanLy")" asp-controller="QuanLy" asp-action="Index">Tổng quan</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Quản lý</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" asp-controller="DanhMuc" asp-action="Index">Danh mục</a></li>
+                                    <li><a class="dropdown-item" asp-controller="MonAn" asp-action="Index">Món ăn</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Ban" asp-action="Index">Bàn và mã QR</a></li>
+                                    <li><a class="dropdown-item" asp-controller="NhanVien" asp-action="Index">Nhân viên</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-controller="ThanhToan" asp-action="DanhSach">Hóa đơn</a></li>
+                                    <li><a class="dropdown-item" asp-controller="QuanLy" asp-action="LichSu">Lịch sử phiên</a></li>
+                                    <li><a class="dropdown-item" asp-controller="BaoCao" asp-action="Index">Doanh thu</a></li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                    <div class="d-flex align-items-center gap-2">
+                        <span id="ketNoi" class="badge bg-secondary d-none" title="Trạng thái nhận thông báo">...</span>
+                        <div class="dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" data-bs-toggle="dropdown">@fullName</a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" asp-controller="TaiKhoan" asp-action="DoiMatKhau">Đổi mật khẩu</a></li>
+                                <li>
+                                    <form asp-controller="TaiKhoan" asp-action="DangXuat" method="post">
+                                        <button class="dropdown-item">Đăng xuất</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </nav>
+
+    <main class="container-fluid py-3">
+        @if (TempData["ThongBao"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show">
+                @TempData["ThongBao"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        @if (TempData["Loi"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show">
+                @TempData["Loi"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        @RenderBody()
+    </main>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastBox"></div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <script src="~/lib/signalr/signalr.min.js"></script>
+        <script src="~/js/staff.js" asp-append-version="true"></script>
+    }
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
