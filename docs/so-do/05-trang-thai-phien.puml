@@ -1,0 +1,33 @@
+@startuml
+!include _style.iuml
+title Qresto - Trạng thái phiên phục vụ (DiningSession)
+
+[*] --> DangPhucVu : Lưu thành công đơn đầu tiên\n(tạo phiên + đơn trong cùng giao dịch)
+
+state "Đang phục vụ" as DangPhucVu : nhận đơn mới, gọi bổ sung
+state "Chờ thanh toán" as ChoThanhToan : khóa gửi món mới cho cả bàn\nkhách vẫn xem món, tạm tính,\ngọi hỗ trợ, yêu cầu hủy hợp lệ
+state "Đã đóng" as DaDong : có đúng 1 hóa đơn
+state "Đã hủy" as DaHuy : không có hóa đơn
+
+DangPhucVu --> ChoThanhToan : Khách yêu cầu thanh toán\nhoặc nhân viên bắt đầu thanh toán
+ChoThanhToan --> DangPhucVu : Phục vụ/quản lý cho gọi thêm
+ChoThanhToan --> DaDong : Xác nhận đã thu tiền\n[đủ điều kiện chốt]
+DangPhucVu --> DaHuy : Hủy phiên không thu tiền\n[mọi dòng Đã hủy/Bị từ chối, có lý do]
+ChoThanhToan --> DaHuy : Hủy phiên không thu tiền\n[như trên]
+DaDong --> [*]
+DaHuy --> [*]
+
+note right of DaDong
+  Khi đóng hoặc hủy phiên:
+  - thu hồi quyền của các trình duyệt khách
+  - TurnVersion của bàn tăng 1, trang cũ
+    không gửi được vào lượt khách mới
+  - bàn sẵn sàng cho lượt sau
+end note
+
+note left of DangPhucVu
+  Mỗi bàn tối đa một phiên ở trạng thái
+  Đang phục vụ hoặc Chờ thanh toán
+  (unique index có điều kiện).
+end note
+@enduml
