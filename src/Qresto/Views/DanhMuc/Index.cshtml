@@ -1,0 +1,50 @@
+@model List<Category>
+@{
+    ViewData["Title"] = "Danh mục";
+}
+<h5>Danh mục món</h5>
+<div class="row">
+    <div class="col-lg-8">
+        <table class="table table-sm bg-white align-middle">
+            <thead><tr><th>Tên</th><th style="width:90px">Thứ tự</th><th>Số món</th><th>Hiển thị</th><th></th></tr></thead>
+            <tbody>
+            @foreach (var c in Model)
+            {
+                @* form dat o cot cuoi, cac o nhap tro toi form bang thuoc tinh form="..." *@
+                var fid = "dm" + c.Id;
+                <tr>
+                    <td><input name="name" form="@fid" value="@c.Name" class="form-control form-control-sm" required /></td>
+                    <td><input name="displayOrder" form="@fid" type="number" value="@c.DisplayOrder" class="form-control form-control-sm" /></td>
+                    <td>@c.MenuItems.Count</td>
+                    <td>
+                        <select name="isActive" form="@fid" class="form-select form-select-sm">
+                            <option value="true" selected="@c.IsActive">Hiện</option>
+                            <option value="false" selected="@(!c.IsActive)">Ẩn</option>
+                        </select>
+                    </td>
+                    <td>
+                        <form asp-action="Luu" method="post" id="@fid">
+                            <input type="hidden" name="id" value="@c.Id" />
+                            <button class="btn btn-sm btn-outline-primary">Lưu</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <p class="small text-muted">Danh mục đã có món thì không xóa, chỉ ẩn để giữ lịch sử.</p>
+    </div>
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">Thêm danh mục</div>
+            <div class="card-body">
+                <form asp-action="Luu" method="post">
+                    <div class="mb-2"><input name="name" class="form-control" placeholder="Tên danh mục" required /></div>
+                    <div class="mb-2"><input name="displayOrder" type="number" class="form-control" placeholder="Thứ tự hiển thị" value="@(Model.Count + 1)" /></div>
+                    <input type="hidden" name="isActive" value="true" />
+                    <button class="btn btn-qresto">Thêm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

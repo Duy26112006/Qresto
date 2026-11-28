@@ -3,6 +3,7 @@ using Qresto.Data;
 using Qresto.Helpers;
 using Qresto.Models;
 using Qresto.Services;
+using Qresto.ViewModels;
 
 namespace Qresto.Tests;
 
@@ -83,19 +84,55 @@ public class TestDb : IDisposable
         public AppDbContext Db { get; }
         public FakeNotifier Notifier { get; } = new();
         public DiningSessionService Sessions { get; }
+        public OrderService Orders { get; }
+        public GuestStatusService Status { get; }
+        public MenuService Menu { get; }
 
         public Svc(AppDbContext db)
         {
             Db = db;
             Sessions = new DiningSessionService(db, Notifier);
+            Orders = new OrderService(db, Sessions, Notifier);
+            Status = new GuestStatusService(db, Sessions);
+            Menu = new MenuService(db, Notifier);
         }
 
         public void Dispose() => Db.Dispose();
+    }
+
+    public static SubmitOrderRequest Request(int? sessionId, int turn, params (int id, int qty, int price)[] lines)
+    {
+        return new SubmitOrderRequest
+        {
+            ClientRequestId = Guid.NewGuid().ToString("N"),
+            PageSessionId = sessionId,
+            PageTurn = turn,
+            Items = lines.Select(l => new CartLine { MenuItemId = l.id, Quantity = l.qty, Price = l.price }).ToList()
+        };
+    }
+
+    // Lay version moi nhat cua dong mon (man hinh nhan vien luon gui version dang thay)
+    public int Version(int itemId)
+    {
+        using var db = NewContext();
+        return db.OrderItems.AsNoTracking().First(i => i.Id == itemId).Version;
+    }
+
+    public OrderItem Item(int itemId)
+    {
+        using var db = NewContext();
+        return db.OrderItems.AsNoTracking().First(i => i.Id == itemId);
     }
 
     public DiningSession Session(int id)
     {
         using var db = NewContext();
         return db.DiningSessions.AsNoTracking().First(s => s.Id == id);
+    }
+
+    public List<int> ItemIdsOfOrder(int orderId)
+    {
+        using var db = NewContext();
+        return db.OrderItems.Where(i => i.OrderId == orderId).OrderBy(i => i.Id).Select(i => i.Id).ToList();
     }
 }

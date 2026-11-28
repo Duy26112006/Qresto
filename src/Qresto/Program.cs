@@ -50,6 +50,9 @@ builder.Services.AddSignalR();
 builder.Services.AddScoped<IStaffNotifier, StaffNotifier>();
 builder.Services.AddScoped<TableService>();
 builder.Services.AddScoped<DiningSessionService>();
+builder.Services.AddScoped<MenuService>();
+builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<GuestStatusService>();
 
 var app = builder.Build();
 

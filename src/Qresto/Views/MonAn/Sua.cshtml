@@ -1,0 +1,54 @@
+@model MenuItem
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Thêm món" : "Sửa món";
+}
+<h5>@ViewData["Title"]</h5>
+<div class="row">
+    <div class="col-lg-6">
+        <form asp-action="Sua" method="post" enctype="multipart/form-data" class="card card-body">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="mb-2">
+                <label class="form-label">Tên món</label>
+                <input asp-for="Name" class="form-control" required maxlength="150" />
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Danh mục</label>
+                    <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-select"></select>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Giá (đ)</label>
+                    <input asp-for="Price" type="number" min="1000" step="1000" class="form-control" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Thời gian chế biến (phút)</label>
+                    <input asp-for="PrepTimeMinutes" type="number" min="1" class="form-control" />
+                </div>
+                <div class="col-md-6 mb-2">
+                    <label class="form-label">Tình trạng</label>
+                    <select asp-for="Status" asp-items="Html.GetEnumSelectList<MenuItemStatus>()" class="form-select"></select>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Mô tả</label>
+                <textarea asp-for="Description" class="form-control" rows="2" maxlength="500"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ảnh (jpg/png/webp, tối đa 2MB)</label>
+                <input type="file" name="anh" accept=".jpg,.jpeg,.png,.webp" class="form-control" />
+                @if (Model.ImageUrl != null)
+                {
+                    <img src="@Model.ImageUrl" class="mt-2 rounded" style="max-height:120px" />
+                    <div class="small text-muted">Không chọn ảnh mới thì giữ ảnh hiện tại.</div>
+                }
+            </div>
+            <div>
+                <button class="btn btn-qresto">Lưu</button>
+                <a asp-action="Index" class="btn btn-light">Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>

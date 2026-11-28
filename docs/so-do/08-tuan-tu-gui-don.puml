@@ -1,0 +1,64 @@
+@startuml
+!include _style.iuml
+title Qresto - Tuần tự gửi đơn gọi món (UC06)
+autonumber
+
+actor "Khách" as K
+participant "Trình duyệt\n(goimon.js)" as B
+participant "GoiMonController" as C
+participant "OrderService" as O
+participant "DiningSessionService" as S
+database "SQLite" as DB
+participant "SignalR\nStaffHub" as H
+
+K -> B : Bấm "Gửi đơn"
+B -> B : Giữ ClientRequestId nếu giỏ không đổi,\ngiỏ đổi thì sinh mã mới
+B -> C : POST /ban/{token}/gui-don\n{ClientRequestId, PageSessionId, PageTurn, Items[]}
+C -> O : SubmitAsync(token, req, guestKey)
+O -> O : Kiểm tra dữ liệu: 1..50 dòng,\nsố lượng 1..50, ghi chú ≤ 300
+O -> DB : BEGIN IMMEDIATE (giao dịch)
+O -> DB : Đơn có cùng ClientRequestId?
+alt Đã có đơn cùng mã
+  alt Cùng trình duyệt và cùng nội dung
+    O --> C : Trả lại đơn cũ (Duplicate)
+  else Khác nội dung
+    O --> C : DuplicateMismatch
+  end
+else Chưa có
+  O -> S : GetActiveSessionAsync(bàn)
+  alt Trang thuộc lượt khách cũ\n(PageSessionId khác hoặc PageTurn khác TurnVersion)
+    O --> C : StaleSession: quét lại QR
+  else Bàn đang Chờ thanh toán
+    O --> C : SessionClosed, giữ giỏ
+  else Hợp lệ
+    O -> DB : Đọc món: còn bán? giá có đổi?
+    alt Món vừa hết
+      O --> C : ItemUnavailable + danh sách món
+    else Giá vừa đổi
+      O --> C : PriceChanged + giá mới
+    else Hợp lệ
+      opt Bàn chưa có phiên
+        O -> DB : Tạo DiningSession (Đang phục vụ)
+      end
+      O -> S : GrantAccessAsync(phiên, guestKey)
+      O -> DB : Tạo Order + OrderItem (Chờ xác nhận),\nlưu tên và đơn giá hiện tại
+      O -> DB : COMMIT
+      O -> H : Thông báo "đơn mới" cho nhân viên
+      O --> C : OrderId, SessionId
+    end
+  end
+end
+note right of DB
+  Có lỗi thì ROLLBACK toàn bộ: không lưu đơn,
+  không để lại phiên rỗng.
+  Hai điện thoại gửi cùng lúc: giao dịch chạy lần lượt,
+  unique index một phiên/bàn chặn phiên thứ hai;
+  bên thua thử lại một lần và vào phiên đã có.
+end note
+C --> B : JSON {ok, data} hoặc {ok:false, code, message}
+alt Thành công
+  B -> B : Xóa giỏ, cập nhật PageSessionId
+else Lỗi
+  B -> B : Giữ giỏ, đánh dấu món lỗi,\nmất mạng thì gửi lại cùng mã
+end
+@enduml
