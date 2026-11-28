@@ -1,0 +1,60 @@
+@model List<MenuItem>
+@{
+    ViewData["Title"] = "Món ăn";
+    List<Category> cats = ViewBag.Categories;
+    int? danhMuc = ViewBag.DanhMuc;
+}
+<div class="d-flex justify-content-between align-items-center mb-2">
+    <h5 class="mb-0">Món ăn</h5>
+    <a asp-action="Sua" class="btn btn-qresto btn-sm">+ Thêm món</a>
+</div>
+
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <select name="danhMuc" class="form-select form-select-sm">
+            <option value="">Tất cả danh mục</option>
+            @foreach (var c in cats)
+            {
+                <option value="@c.Id" selected="@(c.Id == danhMuc)">@c.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-auto"><input name="q" value="@ViewBag.Q" class="form-control form-control-sm" placeholder="Tên món" /></div>
+    <div class="col-auto"><button class="btn btn-sm btn-secondary">Lọc</button></div>
+</form>
+
+<table class="table table-sm table-hover bg-white align-middle">
+    <thead>
+        <tr><th style="width:60px"></th><th>Tên món</th><th>Danh mục</th><th class="text-end">Giá</th><th>Chế biến</th><th>Tình trạng</th><th></th></tr>
+    </thead>
+    <tbody>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>
+                @if (m.ImageUrl != null)
+                {
+                    <img src="@m.ImageUrl" style="width:48px;height:48px;object-fit:cover" class="rounded" />
+                }
+            </td>
+            <td>@m.Name</td>
+            <td>@m.Category?.Name</td>
+            <td class="text-end">@m.Price.Vnd()</td>
+            <td>@m.PrepTimeMinutes phút</td>
+            <td>
+                <form asp-action="DoiTinhTrang" method="post" class="d-flex gap-1">
+                    <input type="hidden" name="id" value="@m.Id" />
+                    <select name="status" class="form-select form-select-sm" style="width:auto" onchange="this.form.submit()">
+                        @foreach (var st in Enum.GetValues<MenuItemStatus>())
+                        {
+                            <option value="@st" selected="@(st == m.Status)">@st.Text()</option>
+                        }
+                    </select>
+                </form>
+            </td>
+            <td><a asp-action="Sua" asp-route-id="@m.Id" class="btn btn-sm btn-outline-secondary">Sửa</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<p class="small text-muted">Đổi giá chỉ áp dụng cho đơn gửi sau đó. Các món khách đã gọi vẫn giữ giá lúc gọi.</p>
